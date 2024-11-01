@@ -1,12 +1,14 @@
 package backend;
 
+import constants.FileNames;
+
 import java.util.ArrayList;
 
-public class AdminRole {
+public class AdminRole implements FileNames {
     private TrainerDatabase database;
 
     public AdminRole() {
-        this.database = new TrainerDatabase("Trainers");
+        this.database = new TrainerDatabase(TRAINER_FILENAME);
     }
 
     public void addTrainer(String trainerID, String name, String email, String speciality, String phoneNumber) {
