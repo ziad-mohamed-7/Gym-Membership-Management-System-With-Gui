@@ -1,5 +1,6 @@
 package frontend;
 
+import backend.Main;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -9,6 +10,9 @@ import javafx.stage.Stage;
 
 public class AdminRoleMenu {
     public static void display() {
+        Stage AdminRoleMenuWindow = new Stage();
+        AdminRoleMenuWindow.setTitle("Admin Role Menu");
+
         Button addTrainerButton = new Button("Add Trainer");
         addTrainerButton.setOnAction(e -> AddPerson.addPersonWindow("Trainer"));
 
@@ -19,7 +23,13 @@ public class AdminRoleMenu {
         viewTrainersButton.setOnAction(e -> ViewTrainers.display());
 
         Button logoutButton = new Button("Logout");
-        logoutButton.setOnAction(e -> Logout.display());
+        logoutButton.setOnAction(e -> {
+            boolean result = Logout.display();
+            if (result) {
+                Main.adminLogoutFromFrontend();
+                AdminRoleMenuWindow.close();
+            }
+        });
 
         VBox adminRoleMenuLayout = new VBox(30, addTrainerButton, removeTrainerButton, viewTrainersButton, logoutButton);
         adminRoleMenuLayout.setAlignment(Pos.CENTER);
@@ -27,8 +37,6 @@ public class AdminRoleMenu {
 
         Scene adminRoleMenuScene = new Scene(adminRoleMenuLayout, 400, 400);
 
-        Stage AdminRoleMenuWindow = new Stage();
-        AdminRoleMenuWindow.setTitle("Admin Role Menu");
         AdminRoleMenuWindow.setScene(adminRoleMenuScene);
         AdminRoleMenuWindow.show();
     }

@@ -97,7 +97,9 @@ public class Main {
     public static boolean removeTrainerFromFrontend(String trainerID) {
         return admin.removeTrainer(trainerID);
     }
-
+    public static void adminLogoutFromFrontend() {
+        admin.logout();
+    }
 
     static TrainerRole trainer = new TrainerRole();
     public static boolean addMemberFromFrontend(String memberID, String name, String membershipType, String email, String phoneNumber, String status) {
