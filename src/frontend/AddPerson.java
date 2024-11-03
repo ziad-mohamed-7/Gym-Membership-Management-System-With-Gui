@@ -48,14 +48,17 @@ public class AddPerson {
             System.out.println("Wrong type");
         }
         addPersonGridLayout.setAlignment(Pos.CENTER);
+        addPersonGridLayout.setHgap(15);
+        addPersonGridLayout.setVgap(15);
 
         Button addButton = new Button("Add");
 
         VBox addPersonFinalLayout = new VBox();
         addPersonFinalLayout.getChildren().addAll(addPersonGridLayout, addButton);
         addPersonFinalLayout.setAlignment(Pos.CENTER);
+        addPersonFinalLayout.setSpacing(30);
 
-        Scene addPersonScene = new Scene(addPersonFinalLayout);
+        Scene addPersonScene = new Scene(addPersonFinalLayout, 400, 400);
         Stage addPersonWindow = new Stage();
         addPersonWindow.setScene(addPersonScene);
         addPersonWindow.setTitle("Add " + type);
