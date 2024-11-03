@@ -1,7 +1,9 @@
 package frontend;
 
+import backend.Main;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -14,10 +16,6 @@ public class CancelRegistration {
         Stage window = new Stage();
         window.setTitle("Cancel Registration");
 
-        Button cancelRegistrationButton = new Button("Cancel Registration");
-        cancelRegistrationButton.setOnAction(e -> {
-            window.close();
-        });
 
         Label memberIdLabel = new Label("Member ID");
         TextField memberIdTxt = new TextField();
@@ -29,6 +27,15 @@ public class CancelRegistration {
         grid.add(memberIdTxt, 1, 0);
         grid.add(classIdLabel, 0, 1);
         grid.add(classIdTxt, 1, 1);
+
+        Button cancelRegistrationButton = new Button("Cancel Registration");
+        cancelRegistrationButton.setOnAction(e -> {
+            if (Main.cancelRegistrationFromFrontend(memberIdTxt.getText(), classIdTxt.getText())) {
+                AlertBox.display("Cancelled Successfully", "The Member with ID = " + memberIdTxt.getText() + " has been unregistered from Class" + classIdTxt.getText());
+                window.close();
+            }else
+                AlertBox.display("Cancellation Failed", "Cannot Cancel Registration! Days limit reached.");
+        });
 
         VBox cancelRegistrationLayout = new VBox(grid, cancelRegistrationButton);
         cancelRegistrationLayout.setSpacing(10);

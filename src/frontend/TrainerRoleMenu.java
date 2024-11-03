@@ -1,5 +1,6 @@
 package frontend;
 
+import backend.Main;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -23,7 +24,7 @@ public class TrainerRoleMenu {
         Button viewRegistrationsButton = new Button("View Registrations");
         viewRegistrationsButton.setOnAction(e -> {});
         Button LogoutButton = new Button("Logout");
-        LogoutButton.setOnAction(e -> {});
+        LogoutButton.setOnAction(e -> Main.trainerLogoutFromFrontend());
 
         VBox trainerRoleMenuLayout = new VBox(20, addMemberButton, viewMembersButton, addClassButton, viewClassesButton, registerButton, cancelButton, viewRegistrationsButton, LogoutButton);
         trainerRoleMenuLayout.setAlignment(Pos.CENTER);

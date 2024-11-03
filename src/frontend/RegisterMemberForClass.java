@@ -38,12 +38,20 @@ public class RegisterMemberForClass {
         Button registerButton = new Button("Register");
         registerButton.setOnAction(e -> {
             if (!memberIdTxt.getText().isEmpty() && !classIdTxt.getText().isEmpty()) {
-//                Main.registerFromFrontend(memberIdTxt.getText(), classIdTxt.getText(), registrationDate.getValue())
-//                    AlertBox.display("Registered Successfully", "The member with ID = " + memberIdTxt.getText() + "has successfully registered to class " + classIdTxt.getText());
-                    window.close();
-
-//                    AlertBox.display("Already Exist", "The Member with ID = " + idTextField.getText() + " already exists.");
-            }
+                switch (Main.registerFromFrontend(memberIdTxt.getText(), classIdTxt.getText(), registrationDate.getValue())) {
+                    case 0 ->
+                            AlertBox.display("Does Not Exist", "The Class " + classIdTxt.getText() + " does not exist.");
+                    case 1 ->
+                            AlertBox.display("No Seats", "The Class " + classIdTxt.getText() + " has no available seats.");
+                    case 2 ->
+                            AlertBox.display("Already Exists", "The member with ID = " + memberIdTxt.getText() + "is already registered to class " + classIdTxt.getText());
+                    case 3 -> {
+                        AlertBox.display("Registered Successfully", "The member with ID = " + memberIdTxt.getText() + "has successfully registered to class " + classIdTxt.getText());
+                        window.close();
+                    }
+                }
+            }else
+                AlertBox.display("Empty Fields", "Some Fields are Empty!!");
         });
 
         VBox registerLayout = new VBox(grid, registerButton);

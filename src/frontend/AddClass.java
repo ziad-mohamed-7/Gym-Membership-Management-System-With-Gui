@@ -1,5 +1,6 @@
 package frontend;
 
+import backend.Main;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -11,8 +12,8 @@ import javafx.stage.Stage;
 
 public class AddClass {
     public static void addClassWindow() {
-        Button add = new Button("Add");
-        add.setOnAction(e -> {});
+        Stage window = new Stage();
+        window.setTitle("Add Class");
 
         Label classIdLabel = new Label("Class ID");
         TextField classIdTxt = new TextField();
@@ -40,16 +41,26 @@ public class AddClass {
         grid.setHgap(10);
         grid.setVgap(10);
 
+        Button add = new Button("Add");
+        add.setOnAction(e -> {
+            if (!classIdTxt.getText().isEmpty() && !classNameTxt.getText().isEmpty() && !trainerIdTxt.getText().isEmpty() && !durationTxt.getText().isEmpty()) {
+                if (Main.addClassFromFrontend(classIdTxt.getText(), classNameTxt.getText(), trainerIdTxt.getText(), Integer.parseInt(durationTxt.getText()), Integer.parseInt(maxParticipantsTxt.getText()))) {
+                    AlertBox.display("Class Added", "Class " + classIdLabel + " added successfully.");
+                    window.close();
+                }else
+                    AlertBox.display("Already Exists", "Class " + classIdLabel + " already exists.");
+            }else
+                AlertBox.display("Empty Fields", "Some Fields are Empty!!");
+        });
+
         VBox addClassLayout = new VBox(grid, add);
         addClassLayout.setAlignment(Pos.CENTER);
         addClassLayout.setSpacing(10);
 
         Scene scene = new Scene(addClassLayout, 400, 300);
 
-        Stage addClassWindow = new Stage();
-        addClassWindow.setTitle("Add Class");
-        addClassWindow.setScene(scene);
+        window.setScene(scene);
 
-        addClassWindow.show();
+        window.show();
     }
 }
