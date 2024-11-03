@@ -54,6 +54,7 @@ public class RegisterMemberForClass {
                 AlertBox.display("Empty Fields", "Some Fields are Empty!!");
         });
 
+
         VBox registerLayout = new VBox(grid, registerButton);
         registerLayout.setSpacing(10);
         registerLayout.setAlignment(Pos.CENTER);
