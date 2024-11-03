@@ -57,6 +57,7 @@ public class TrainerRole implements FileNames {
 
         if (!LocalDate.now().isBefore(r1.getRegistrationDate()) && !LocalDate.now().isAfter(r1.getRegistrationDate().plusDays(3))) {
             r1.setRegistrationStatus("cancelled");
+            registrationDatabase.deleteRecord(r1.getSearchKey());
             Class c1 = (Class) classDatabase.getRecord(classID);
             c1.setAvailableSeats(c1.getAvailableSeats() + 1);
             return true;

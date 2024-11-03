@@ -20,7 +20,10 @@ public class StartWindow extends Application {
         });
 
         Button trainerRoleButton = new Button("Trainer Role");
-
+        trainerRoleButton.setOnAction(e -> {
+            TrainerLogin.display();
+            window.close();
+        });
         VBox startLayout = new VBox(100);
         startLayout.getChildren().addAll(adminRoleButton, trainerRoleButton);
         startLayout.setAlignment(Pos.CENTER);
