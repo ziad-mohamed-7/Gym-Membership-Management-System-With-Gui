@@ -6,16 +6,20 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
+
 public class AdminRoleMenu {
     public static void display() {
         Button addTrainerButton = new Button("Add Trainer");
         addTrainerButton.setOnAction(e -> AddPerson.addPersonWindow("Trainer"));
 
         Button removeTrainerButton = new Button("Remove Trainer");
+        removeTrainerButton.setOnAction(e -> RemoveTrainer.display());
 
         Button viewTrainersButton = new Button("View Trainers");
+        viewTrainersButton.setOnAction(e -> ViewTrainers.display());
 
         Button logoutButton = new Button("Logout");
+        logoutButton.setOnAction(e -> Logout.display());
 
         VBox adminRoleMenuLayout = new VBox(30, addTrainerButton, removeTrainerButton, viewTrainersButton, logoutButton);
         adminRoleMenuLayout.setAlignment(Pos.CENTER);

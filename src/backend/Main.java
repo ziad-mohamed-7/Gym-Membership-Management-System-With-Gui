@@ -90,13 +90,14 @@ public class Main {
 //        }
     }
 
-    public static void addTrainerFromFrontend(String trainerID, String name, String email, String speciality, String phoneNumber) {
+    public static boolean addTrainerFromFrontend(String trainerID, String name, String email, String speciality, String phoneNumber) {
         AdminRole admin = new AdminRole();
-        admin.addTrainer(trainerID, name, email, speciality, phoneNumber);
+        return admin.addTrainer(trainerID, name, email, speciality, phoneNumber);
+
     }
-    public static void addMemberFromFrontend(String memberID, String name, String membershipType, String email, String phoneNumber, String status) {
+    public static boolean addMemberFromFrontend(String memberID, String name, String membershipType, String email, String phoneNumber, String status) {
         TrainerRole trainer = new TrainerRole();
-        trainer.addMember(memberID, name, membershipType, email, phoneNumber, status);
+        return trainer.addMember(memberID, name, membershipType, email, phoneNumber, status);
     }
 }
 

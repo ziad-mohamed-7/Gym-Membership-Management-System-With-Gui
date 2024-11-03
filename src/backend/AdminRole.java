@@ -11,9 +11,9 @@ public class AdminRole implements FileNames {
         this.database = new TrainerDatabase(TRAINER_FILENAME);
     }
 
-    public void addTrainer(String trainerID, String name, String email, String speciality, String phoneNumber) {
+    public boolean addTrainer(String trainerID, String name, String email, String speciality, String phoneNumber) {
         Trainer trainer = new Trainer(trainerID, name, email, speciality, phoneNumber);
-        database.insertRecord(trainer);
+        return database.insertRecord(trainer);
     }
 
     public ArrayList<Data> getListOfTrainers(){
