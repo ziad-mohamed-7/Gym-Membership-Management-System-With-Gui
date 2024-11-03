@@ -27,6 +27,9 @@ public class CancelRegistration {
         grid.add(memberIdTxt, 1, 0);
         grid.add(classIdLabel, 0, 1);
         grid.add(classIdTxt, 1, 1);
+        grid.setAlignment(Pos.CENTER);
+        grid.setHgap(10);
+        grid.setVgap(10);
 
         Button cancelRegistrationButton = new Button("Cancel Registration");
         cancelRegistrationButton.setOnAction(e -> {

@@ -34,6 +34,9 @@ public class RegisterMemberForClass {
         grid.add(classIdTxt, 1, 1);
         grid.add(registrationLabel, 0, 2);
         grid.add(registrationDate, 1, 2);
+        grid.setAlignment(Pos.CENTER);
+        grid.setHgap(10);
+        grid.setVgap(10);
 
         Button registerButton = new Button("Register");
         registerButton.setOnAction(e -> {
