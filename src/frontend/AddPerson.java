@@ -58,14 +58,27 @@ public class AddPerson {
 
         Button addButton = new Button("Add");
         addButton.setOnAction(e -> {
-            if (type.equals("Trainer")) {
-                Main.addTrainerFromFrontend(idTextField.getText(), nameTextField.getText(), emailTextField.getText(), phoneNumberTextField.getText(), specialityTextField.getText());
-            } else if (type.equals("Member")) {
-                Main.addMemberFromFrontend(idTextField.getText(), nameTextField.getText(), membershipTextField.getText(), emailTextField.getText(), phoneNumberTextField.getText(), statusTextField.getText());
+            if (!idTextField.getText().isEmpty() || !nameTextField.getText().isEmpty() || !emailTextField.getText().isEmpty() || !phoneNumberTextField.getText().isEmpty()) {
+                if (type.equals("Trainer")) {
+                    if (!specialityTextField.getText().isEmpty()) {
+                        Main.addTrainerFromFrontend(idTextField.getText(), nameTextField.getText(), emailTextField.getText(), phoneNumberTextField.getText(), specialityTextField.getText());
+                        addPersonWindow.close();
+                    }
+                    else
+                        AlertBox.display("Empty Fields", "Some Fields are Empty!!");
+                } else if (type.equals("Member"))
+                    if (!membershipLabel.getText().isEmpty() || !statusTextField.getText().isEmpty()) {
+                        Main.addMemberFromFrontend(idTextField.getText(), nameTextField.getText(), membershipTextField.getText(), emailTextField.getText(), phoneNumberTextField.getText(), statusTextField.getText());
+                        addPersonWindow.close();
+                    }
+                    else
+                        AlertBox.display("Empty Fields", "Some Fields are Empty!!");
+                else {
+                    System.out.println("Wrong type");
+                }
             } else {
-                System.out.println("Wrong type");
+                AlertBox.display("Empty Fields", "Some Fields are Empty!!");
             }
-            addPersonWindow.close();
         });
 
         VBox addPersonFinalLayout = new VBox();
