@@ -9,17 +9,17 @@ import javafx.stage.Stage;
 public class TrainerRoleMenu {
     public static void display() {
         Button addMemberButton = new Button("Add Member");
-        addMemberButton.setOnAction(e -> {});
+        addMemberButton.setOnAction(e -> AddPerson.addPersonWindow("Member"));
         Button viewMembersButton = new Button("View Members");
         viewMembersButton.setOnAction(e -> {});
         Button addClassButton = new Button("Add Class");
-        addClassButton.setOnAction(e -> AddClass.display());
+        addClassButton.setOnAction(e -> AddClass.addClassWindow());
         Button viewClassesButton = new Button("View Classes");
         viewClassesButton.setOnAction(e -> {});
         Button registerButton = new Button("Register Member for Class");
-        registerButton.setOnAction(e -> {});
+        registerButton.setOnAction(e -> RegisterMemberForClass.registerWindow());
         Button cancelButton = new Button("Cancel Registration");
-        cancelButton.setOnAction(e -> {});
+        cancelButton.setOnAction(e -> CancelRegistration.cancelRegistrationWindow());
         Button viewRegistrationsButton = new Button("View Registrations");
         viewRegistrationsButton.setOnAction(e -> {});
         Button LogoutButton = new Button("Logout");
