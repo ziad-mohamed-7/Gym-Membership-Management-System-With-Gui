@@ -57,7 +57,7 @@ public class AddPerson {
 
         Button addButton = new Button("Add");
         addButton.setOnAction(e -> {
-            if (!idTextField.getText().isEmpty() || !nameTextField.getText().isEmpty() || !emailTextField.getText().isEmpty() || !phoneNumberTextField.getText().isEmpty()) {
+            if (!idTextField.getText().isEmpty() && !nameTextField.getText().isEmpty() && !emailTextField.getText().isEmpty() && !phoneNumberTextField.getText().isEmpty()) {
                 if (type.equals("Trainer")) {
                     if (!specialityTextField.getText().isEmpty()) {
                         if (Main.addTrainerFromFrontend(idTextField.getText(), nameTextField.getText(), emailTextField.getText(), phoneNumberTextField.getText(), specialityTextField.getText())) {
@@ -69,7 +69,7 @@ public class AddPerson {
                     } else
                         AlertBox.display("Empty Fields", "Some Fields are Empty!!");
                 } else if (type.equals("Member"))
-                    if (!membershipLabel.getText().isEmpty() || !statusTextField.getText().isEmpty()) {
+                    if (!membershipLabel.getText().isEmpty() && !statusTextField.getText().isEmpty()) {
                         if (Main.addMemberFromFrontend(idTextField.getText(), nameTextField.getText(), membershipTextField.getText(), emailTextField.getText(), phoneNumberTextField.getText(), statusTextField.getText())) {
                             AlertBox.display("Member Added", "The Member with ID = " + idTextField.getText() + " has been added successfully.");
                             addPersonWindow.close();

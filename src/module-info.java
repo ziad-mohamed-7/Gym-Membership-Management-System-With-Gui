@@ -3,4 +3,6 @@ module Gym.Membership.Management.System.With.Gui {
     requires java.desktop;
 
     opens frontend;
+    exports frontend;
+    exports backend;
 }

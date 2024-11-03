@@ -40,15 +40,16 @@ public class AddClass {
         grid.add(maxParticipantsTxt, 1, 4);
         grid.setHgap(10);
         grid.setVgap(10);
+        grid.setAlignment(Pos.CENTER);
 
         Button add = new Button("Add");
         add.setOnAction(e -> {
             if (!classIdTxt.getText().isEmpty() && !classNameTxt.getText().isEmpty() && !trainerIdTxt.getText().isEmpty() && !durationTxt.getText().isEmpty()) {
                 if (Main.addClassFromFrontend(classIdTxt.getText(), classNameTxt.getText(), trainerIdTxt.getText(), Integer.parseInt(durationTxt.getText()), Integer.parseInt(maxParticipantsTxt.getText()))) {
-                    AlertBox.display("Class Added", "Class " + classIdLabel + " added successfully.");
+                    AlertBox.display("Class Added", "Class with ID = " + classIdLabel.getText() + " added successfully.");
                     window.close();
                 }else
-                    AlertBox.display("Already Exists", "Class " + classIdLabel + " already exists.");
+                    AlertBox.display("Already Exists", "Class with ID = " + classIdLabel.getText() + " already exists.");
             }else
                 AlertBox.display("Empty Fields", "Some Fields are Empty!!");
         });

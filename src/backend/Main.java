@@ -101,6 +101,10 @@ public class Main {
     public static void adminLogoutFromFrontend() {
         admin.logout();
     }
+    public static ArrayList<Trainer> getListOfTrainersForFrontend() {
+        return admin.getListOfTrainers();
+    }
+
 
     static TrainerRole trainer = new TrainerRole();
     public static boolean addMemberFromFrontend(String memberID, String name, String membershipType, String email, String phoneNumber, String status) {

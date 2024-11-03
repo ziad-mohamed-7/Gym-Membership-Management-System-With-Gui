@@ -16,8 +16,12 @@ public class AdminRole implements FileNames {
         return database.insertRecord(trainer);
     }
 
-    public ArrayList<Data> getListOfTrainers(){
-        return database.returnAllRecords();
+    public ArrayList<Trainer> getListOfTrainers(){
+        ArrayList<Trainer> trainers = new ArrayList<>();
+        for (Data d : database.returnAllRecords()) {
+            trainers.add((Trainer) d);
+        }
+        return trainers;
     }
 
     public boolean removeTrainer(String key) {
