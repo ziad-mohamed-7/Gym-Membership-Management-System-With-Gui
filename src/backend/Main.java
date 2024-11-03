@@ -1,5 +1,4 @@
-import backend.AdminRole;
-import backend.TrainerRole;
+package backend;
 
 import java.time.LocalDate;
 
