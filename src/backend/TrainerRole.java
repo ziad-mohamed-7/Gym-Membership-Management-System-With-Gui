@@ -26,9 +26,9 @@ public class TrainerRole implements FileNames {
         return memberDatabase.returnAllRecords();
     }
 
-    public void addClass(String classID, String className, String trainerID, int duration, int maxParticipants) {
+    public boolean addClass(String classID, String className, String trainerID, int duration, int maxParticipants) {
         Class c1 = new Class(classID, className, trainerID, duration, maxParticipants);
-        classDatabase.insertRecord(c1);
+        return classDatabase.insertRecord(c1);
     }
 
     public ArrayList<Class> getListOfClasses() {

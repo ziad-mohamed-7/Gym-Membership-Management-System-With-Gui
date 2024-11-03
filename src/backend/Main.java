@@ -1,6 +1,7 @@
 package backend;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 
 public class Main {
     public static void main(String[] args) {
@@ -104,6 +105,18 @@ public class Main {
     static TrainerRole trainer = new TrainerRole();
     public static boolean addMemberFromFrontend(String memberID, String name, String membershipType, String email, String phoneNumber, String status) {
         return trainer.addMember(memberID, name, membershipType, email, phoneNumber, status);
+    }
+    public static boolean addClassFromFrontend(String classID, String className, String trainerID, int duration, int maxParticipants) {
+        return trainer.addClass(classID, className, trainerID, duration, maxParticipants);
+    }
+    public static boolean registerFromFrontend(String memberID, String classID, LocalDate registrationDate) {
+        return trainer.registerMemberForClass(memberID, classID, registrationDate);
+    }
+    public static boolean cancelRegistrationFromFrontend(String memberID, String classID) {
+        return trainer.cancelRegistration(memberID, classID);
+    }
+    public static void  trainerLogoutFromFrontend() {
+        trainer.logout();
     }
 }
 
