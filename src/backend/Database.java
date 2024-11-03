@@ -67,13 +67,14 @@ public abstract class Database {
         return null;
     }
 
-    public void insertRecord(Data record) {
-
+    public boolean insertRecord(Data record) {
         // checks if the record is already exist
         if (!contains(record.getSearchKey())) {
             records.add(record);
+            return true;
         } else {
             System.out.println("Record already exists");
+            return false;
         }
     }
 

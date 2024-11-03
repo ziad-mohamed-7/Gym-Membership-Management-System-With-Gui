@@ -17,9 +17,9 @@ public class TrainerRole implements FileNames {
         this.registrationDatabase = new MemberClassRegistrationDatabase(REGISTRATION_FILENAME);
     }
 
-    public void addMember(String memberID, String name, String membershipType, String email, String phoneNumber, String status) {
+    public boolean addMember(String memberID, String name, String membershipType, String email, String phoneNumber, String status) {
         Member m1 = new Member(memberID, name, membershipType, email, phoneNumber, status);
-        memberDatabase.insertRecord(m1);
+        return memberDatabase.insertRecord(m1);
     }
 
     public ArrayList<Data> getListOfMembers() {

@@ -1,6 +1,5 @@
 package frontend;
 
-import backend.AdminRole;
 import backend.Main;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -61,17 +60,24 @@ public class AddPerson {
             if (!idTextField.getText().isEmpty() || !nameTextField.getText().isEmpty() || !emailTextField.getText().isEmpty() || !phoneNumberTextField.getText().isEmpty()) {
                 if (type.equals("Trainer")) {
                     if (!specialityTextField.getText().isEmpty()) {
-                        Main.addTrainerFromFrontend(idTextField.getText(), nameTextField.getText(), emailTextField.getText(), phoneNumberTextField.getText(), specialityTextField.getText());
-                        addPersonWindow.close();
-                    }
-                    else
+                        if (Main.addTrainerFromFrontend(idTextField.getText(), nameTextField.getText(), emailTextField.getText(), phoneNumberTextField.getText(), specialityTextField.getText())) {
+                            AlertBox.display("Trainer Added", "The Trainer with ID = " + idTextField.getText() + " has been added successfully.");
+                            addPersonWindow.close();
+                        } else {
+                            AlertBox.display("Already Exist", "The Trainer with ID = " + idTextField.getText() + " already exists.");
+                        }
+                    } else
                         AlertBox.display("Empty Fields", "Some Fields are Empty!!");
                 } else if (type.equals("Member"))
                     if (!membershipLabel.getText().isEmpty() || !statusTextField.getText().isEmpty()) {
-                        Main.addMemberFromFrontend(idTextField.getText(), nameTextField.getText(), membershipTextField.getText(), emailTextField.getText(), phoneNumberTextField.getText(), statusTextField.getText());
-                        addPersonWindow.close();
-                    }
-                    else
+                        if (Main.addMemberFromFrontend(idTextField.getText(), nameTextField.getText(), membershipTextField.getText(), emailTextField.getText(), phoneNumberTextField.getText(), statusTextField.getText())) {
+                            AlertBox.display("Member Added", "The Member with ID = " + idTextField.getText() + " has been added successfully.");
+                            addPersonWindow.close();
+                        }
+                        else {
+                            AlertBox.display("Already Exist", "The Member with ID = " + idTextField.getText() + " already exists.");
+                        }
+                    } else
                         AlertBox.display("Empty Fields", "Some Fields are Empty!!");
                 else {
                     System.out.println("Wrong type");

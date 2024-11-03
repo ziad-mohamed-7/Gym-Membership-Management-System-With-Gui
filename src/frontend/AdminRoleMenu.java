@@ -6,7 +6,6 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
-import javax.swing.text.View;
 
 public class AdminRoleMenu {
     public static void display() {
