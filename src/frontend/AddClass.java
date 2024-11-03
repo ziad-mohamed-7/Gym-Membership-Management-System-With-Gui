@@ -56,7 +56,7 @@ public class AddClass {
 
         VBox addClassLayout = new VBox(grid, add);
         addClassLayout.setAlignment(Pos.CENTER);
-        addClassLayout.setSpacing(10);
+        addClassLayout.setSpacing(15);
 
         Scene scene = new Scene(addClassLayout, 400, 300);
 
