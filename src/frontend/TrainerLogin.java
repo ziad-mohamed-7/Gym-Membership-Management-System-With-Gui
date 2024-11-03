@@ -7,13 +7,14 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 public class TrainerLogin implements LoginCredentials {
 
     public static void display() {
-        Stage adminLoginWindow = new Stage();
+        Stage trainerLoginWindow = new Stage();
 
         Label userNameLabel = new Label("Username: ");
         Label passwordLabel = new Label("Password: ");
@@ -25,21 +26,27 @@ public class TrainerLogin implements LoginCredentials {
         loginButton.setOnAction(e -> {
             if (userNameTextField.getText().equals(TRAINER_USERNAME) && passwordTextField.getText().equals(TRAINER_PASSWORD)) {
                 TrainerRoleMenu.display();
-                adminLoginWindow.close();
+                trainerLoginWindow.close();
             }
             else
                 AlertBox.display("Wrong Credentials", "Wrong Username or Password");
         });
 
 
-        VBox adminLoginLayout = new VBox();
-        adminLoginLayout.getChildren().addAll(userNameLabel, passwordLabel, userNameTextField, passwordTextField, loginButton);
-        adminLoginLayout.setAlignment(Pos.CENTER);
+        GridPane trainerLoginGridLayout = new GridPane();
+        trainerLoginGridLayout.add(userNameLabel, 0, 0);
+        trainerLoginGridLayout.add(userNameTextField, 1, 0);
+        trainerLoginGridLayout.add(passwordLabel, 0, 1);
+        trainerLoginGridLayout.add(passwordTextField, 1, 1);
+        trainerLoginGridLayout.setAlignment(Pos.CENTER);
 
-        Scene adminLoginScene = new Scene(adminLoginLayout, 400, 400);
+        VBox trainerLoginFinalLayout = new VBox();
+        trainerLoginFinalLayout.getChildren().addAll(trainerLoginGridLayout, loginButton);
+        trainerLoginFinalLayout.setAlignment(Pos.CENTER);
 
-        adminLoginWindow.setTitle("Admin Login");
-        adminLoginWindow.setScene(adminLoginScene);
-        adminLoginWindow.show();
+        Scene adminLoginScene = new Scene(trainerLoginFinalLayout, 400, 400);
+
+        trainerLoginWindow.setScene(adminLoginScene);
+        trainerLoginWindow.show();
     }
 }

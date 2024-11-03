@@ -10,7 +10,7 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 public class AddClass {
-    public static void display() {
+    public static void addClassWindow() {
         Button add = new Button("Add");
         add.setOnAction(e -> {});
 
