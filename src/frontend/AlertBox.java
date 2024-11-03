@@ -1,5 +1,6 @@
 package frontend;
 
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -20,6 +21,7 @@ public class AlertBox {
 
         VBox alertLayout = new VBox(20);
         alertLayout.getChildren().addAll(alertMessage, closeButton);
+        alertLayout.setAlignment(Pos.CENTER);
 
         Scene alertScene = new Scene(alertLayout, 400, 100);
         window.setScene(alertScene);
