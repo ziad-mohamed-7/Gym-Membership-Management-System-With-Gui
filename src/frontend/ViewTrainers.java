@@ -16,18 +16,23 @@ public class ViewTrainers {
         TableView<Trainer> trainerTable = new TableView<>();
 
         TableColumn<Trainer, String> idColumn = new TableColumn<>("ID");
+        idColumn.setMinWidth(50);
         idColumn.setCellValueFactory(new PropertyValueFactory<>("trainerID"));
 
         TableColumn<Trainer, String> nameColumn = new TableColumn<>("Name");
+        nameColumn.setMinWidth(100);
         nameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
 
         TableColumn<Trainer, String> emailColumn = new TableColumn<>("Email");
+        nameColumn.setMinWidth(100);
         emailColumn.setCellValueFactory(new PropertyValueFactory<>("email"));
 
         TableColumn<Trainer, String> specialityColumn = new TableColumn<>("Speciality");
-        specialityColumn.setCellValueFactory(new PropertyValueFactory<>("speciality"));
+        nameColumn.setMinWidth(100);
+        specialityColumn.setCellValueFactory(new PropertyValueFactory<>("specialty"));
 
         TableColumn<Trainer, String> phoneNumberColumn = new TableColumn<>("Phone Number");
+        nameColumn.setMinWidth(100);
         phoneNumberColumn.setCellValueFactory(new PropertyValueFactory<>("phoneNumber"));
 
         trainerTable.setItems(getTrainers());
@@ -41,17 +46,11 @@ public class ViewTrainers {
         trainerTableWindow.setTitle("View Trainers");
         trainerTableWindow.setScene(trainerTableScene);
         trainerTableWindow.show();
-
     }
 
     public static ObservableList<Trainer> getTrainers() {
         ObservableList<Trainer> trainers = FXCollections.observableArrayList();
-
-        trainers.add(new Trainer("vuyv", "vuyv", "vuyv", "vuyv", "vuyv"));
-        trainers.add(new Trainer("pkmyv", "vugerw", "gevuyv", "erwrv", "Asdf"));
-//        for (Trainer trainer:Main.getListOfTrainersForFrontend()){
-//            System.out.println(trainer.lineRepresentation());
-//        }
+        trainers.addAll(Main.getListOfTrainersForFrontend());
         return trainers;
     }
 
