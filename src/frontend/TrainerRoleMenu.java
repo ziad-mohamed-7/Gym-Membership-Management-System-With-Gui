@@ -9,6 +9,9 @@ import javafx.stage.Stage;
 
 public class TrainerRoleMenu {
     public static void display() {
+        Stage trainerRoleMenuWindow = new Stage();
+        trainerRoleMenuWindow.setTitle("Trainer Role Menu");
+
         Button addMemberButton = new Button("Add Member");
         addMemberButton.setOnAction(e -> AddPerson.addPersonWindow("Member"));
         Button viewMembersButton = new Button("View Members");
@@ -23,17 +26,20 @@ public class TrainerRoleMenu {
         cancelButton.setOnAction(e -> CancelRegistration.cancelRegistrationWindow());
         Button viewRegistrationsButton = new Button("View Registrations");
         viewRegistrationsButton.setOnAction(e -> {});
-        Button LogoutButton = new Button("Logout");
-        LogoutButton.setOnAction(e -> Main.trainerLogoutFromFrontend());
+        Button logoutButton = new Button("Logout");
+        logoutButton.setOnAction(e -> {
+            boolean result = Logout.display();
+            if (result) {
+                Main.trainerLogoutFromFrontend();
+                trainerRoleMenuWindow.close();
+            }
+        });
 
-        VBox trainerRoleMenuLayout = new VBox(20, addMemberButton, viewMembersButton, addClassButton, viewClassesButton, registerButton, cancelButton, viewRegistrationsButton, LogoutButton);
+        VBox trainerRoleMenuLayout = new VBox(20, addMemberButton, viewMembersButton, addClassButton, viewClassesButton, registerButton, cancelButton, viewRegistrationsButton, logoutButton);
         trainerRoleMenuLayout.setAlignment(Pos.CENTER);
 
         Scene trainerRoleMenuScene = new Scene(trainerRoleMenuLayout, 400, 700);
-
-        Stage TrainerRoleMenuWindow = new Stage();
-        TrainerRoleMenuWindow.setTitle("Trainer Role Menu");
-        TrainerRoleMenuWindow.setScene(trainerRoleMenuScene);
-        TrainerRoleMenuWindow.show();
+        trainerRoleMenuWindow.setScene(trainerRoleMenuScene);
+        trainerRoleMenuWindow.show();
     }
 }
