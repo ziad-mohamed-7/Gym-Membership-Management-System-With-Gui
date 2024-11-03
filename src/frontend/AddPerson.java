@@ -1,5 +1,7 @@
 package frontend;
 
+import backend.AdminRole;
+import backend.Main;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -11,6 +13,9 @@ import javafx.stage.Stage;
 
 public class AddPerson {
     public static void addPersonWindow(String type) {
+        Stage addPersonWindow = new Stage();
+        addPersonWindow.setTitle("Add " + type);
+
         Label idLabel = new Label("ID");
         Label nameLabel = new Label("Name");
         Label emailLabel = new Label("Email");
@@ -52,6 +57,16 @@ public class AddPerson {
         addPersonGridLayout.setVgap(15);
 
         Button addButton = new Button("Add");
+        addButton.setOnAction(e -> {
+            if (type.equals("Trainer")) {
+                Main.addTrainerFromFrontend(idTextField.getText(), nameTextField.getText(), emailTextField.getText(), phoneNumberTextField.getText(), specialityTextField.getText());
+            } else if (type.equals("Member")) {
+                Main.addMemberFromFrontend(idTextField.getText(), nameTextField.getText(), membershipTextField.getText(), emailTextField.getText(), phoneNumberTextField.getText(), statusTextField.getText());
+            } else {
+                System.out.println("Wrong type");
+            }
+            addPersonWindow.close();
+        });
 
         VBox addPersonFinalLayout = new VBox();
         addPersonFinalLayout.getChildren().addAll(addPersonGridLayout, addButton);
@@ -59,9 +74,7 @@ public class AddPerson {
         addPersonFinalLayout.setSpacing(30);
 
         Scene addPersonScene = new Scene(addPersonFinalLayout, 400, 400);
-        Stage addPersonWindow = new Stage();
         addPersonWindow.setScene(addPersonScene);
-        addPersonWindow.setTitle("Add " + type);
         addPersonWindow.show();
 
     }

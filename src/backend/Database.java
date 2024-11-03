@@ -19,7 +19,7 @@ public abstract class Database {
         String fileContentString;
         try {
             // store the file content as 1 string in fileContentString
-            fileContentString = Files.readString(Paths.get(fileName + ".txt"));
+            fileContentString = Files.readString(Paths.get(fileName));
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -89,7 +89,7 @@ public abstract class Database {
     public void saveToFile() {
         try {
             // creating new Write instance
-            Writer writer = new FileWriter(fileName + ".txt");
+            Writer writer = new FileWriter(fileName);
             if (!records.isEmpty()) {
                 // saving the data to the file
                 writer.write(records.get(0).lineRepresentation());
