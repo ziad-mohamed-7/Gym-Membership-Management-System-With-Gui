@@ -40,12 +40,14 @@ public class AdminLogin implements LoginCredentials {
         adminLoginGridLayout.add(passwordLabel, 0, 1);
         adminLoginGridLayout.add(passwordTextField, 1, 1);
         adminLoginGridLayout.setAlignment(Pos.CENTER);
+        adminLoginGridLayout.setHgap(10);
+        adminLoginGridLayout.setVgap(20);
 
-        VBox adminLoginFinalLayout = new VBox();
+        VBox adminLoginFinalLayout = new VBox(20);
         adminLoginFinalLayout.getChildren().addAll(adminLoginGridLayout, loginButton);
         adminLoginFinalLayout.setAlignment(Pos.CENTER);
 
-        Scene adminLoginScene = new Scene(adminLoginFinalLayout, 400, 400);
+        Scene adminLoginScene = new Scene(adminLoginFinalLayout, 300, 300);
 
         adminLoginWindow.setScene(adminLoginScene);
         adminLoginWindow.show();

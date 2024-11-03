@@ -24,11 +24,13 @@ public class StartWindow extends Application {
             TrainerLogin.display();
             window.close();
         });
-        VBox startLayout = new VBox(100);
+
+        VBox startLayout = new VBox(50);
         startLayout.getChildren().addAll(adminRoleButton, trainerRoleButton);
         startLayout.setAlignment(Pos.CENTER);
 
-        Scene startScene = new Scene(startLayout, 400, 500);
+        Scene startScene = new Scene(startLayout, 300, 300);
+        startScene.getStylesheets().add(getClass().getResource("styles.css").toExternalForm());
 
         window.setScene(startScene);
         window.setTitle("Gym System");

@@ -39,12 +39,14 @@ public class TrainerLogin implements LoginCredentials {
         trainerLoginGridLayout.add(passwordLabel, 0, 1);
         trainerLoginGridLayout.add(passwordTextField, 1, 1);
         trainerLoginGridLayout.setAlignment(Pos.CENTER);
+        trainerLoginGridLayout.setHgap(10);
+        trainerLoginGridLayout.setVgap(20);
 
-        VBox trainerLoginFinalLayout = new VBox();
+        VBox trainerLoginFinalLayout = new VBox(20);
         trainerLoginFinalLayout.getChildren().addAll(trainerLoginGridLayout, loginButton);
         trainerLoginFinalLayout.setAlignment(Pos.CENTER);
 
-        Scene adminLoginScene = new Scene(trainerLoginFinalLayout, 400, 400);
+        Scene adminLoginScene = new Scene(trainerLoginFinalLayout, 300, 300);
 
         trainerLoginWindow.setScene(adminLoginScene);
         trainerLoginWindow.show();
