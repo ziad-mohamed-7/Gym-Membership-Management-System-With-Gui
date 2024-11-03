@@ -20,8 +20,8 @@ public class AdminRole implements FileNames {
         return database.returnAllRecords();
     }
 
-    public void removeTrainer(String key) {
-        database.deleteRecord(key);
+    public boolean removeTrainer(String key) {
+        return database.deleteRecord(key);
     }
 
     public void logout(){

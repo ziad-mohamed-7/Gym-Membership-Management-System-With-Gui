@@ -78,13 +78,16 @@ public abstract class Database {
         }
     }
 
-    public void deleteRecord(String key) {
+    public boolean deleteRecord(String key) {
 
         // checks if the key exists
-        if (contains(key))
+        if (contains(key)) {
             records.remove(getRecord(key));
-        else
+            return true;
+        } else {
             System.out.println("Record doesn't exists");
+            return false;
+        }
     }
 
     public void saveToFile() {

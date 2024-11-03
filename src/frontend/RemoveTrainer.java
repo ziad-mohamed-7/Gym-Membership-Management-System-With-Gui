@@ -1,5 +1,6 @@
 package frontend;
 
+import backend.Main;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -9,7 +10,7 @@ import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 
 public class RemoveTrainer {
-    public static void display(){
+    public static void display() {
         Stage removeTrainerWindow = new Stage();
         removeTrainerWindow.setTitle("Remove Trainer");
 
@@ -17,8 +18,13 @@ public class RemoveTrainer {
         TextField trainerIdTextField = new TextField();
         Button removeButton = new Button("Remove");
         removeButton.setOnAction(e -> {
-//            Main.
-            removeTrainerWindow.close();
+            if (Main.removeTrainerFromFrontend(trainerIdTextField.getText())) {
+                AlertBox.display("Remove Trainer", "The Trainer with ID = "+ trainerIdTextField.getText() + " has been removed");
+                removeTrainerWindow.close();
+            }
+            else {
+                AlertBox.display("Not Found", "The Trainer with ID = " + trainerIdTextField.getText() + " does not exist");
+            }
         });
 
         HBox removeTrainerLayout = new HBox(trainerIdLabel, trainerIdTextField, removeButton);
