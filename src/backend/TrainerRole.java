@@ -39,16 +39,16 @@ public class TrainerRole implements FileNames {
         return classes;
     }
 
-    public boolean registerMemberForClass(String memberID, String classID, LocalDate registrationDate) {
-        if (!classDatabase.contains(classID)) return false;
+    public int registerMemberForClass(String memberID, String classID, LocalDate registrationDate) {
+        if (!classDatabase.contains(classID)) return 0;
         Class c1 = (Class) classDatabase.getRecord(classID);
-        if (c1.getAvailableSeats() == 0) return false;
+        if (c1.getAvailableSeats() == 0) return 1;
         MemberClassRegistration r1 = new MemberClassRegistration(memberID, classID, registrationDate, "active");
         if (registrationDatabase.contains(r1.getSearchKey()))
-            return false;
+            return 2;
         registrationDatabase.insertRecord(r1);
         c1.setAvailableSeats(c1.getAvailableSeats() - 1);
-        return true;
+        return 3;
     }
 
     public boolean cancelRegistration(String memberID, String classID) {

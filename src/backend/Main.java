@@ -109,7 +109,7 @@ public class Main {
     public static boolean addClassFromFrontend(String classID, String className, String trainerID, int duration, int maxParticipants) {
         return trainer.addClass(classID, className, trainerID, duration, maxParticipants);
     }
-    public static boolean registerFromFrontend(String memberID, String classID, LocalDate registrationDate) {
+    public static int registerFromFrontend(String memberID, String classID, LocalDate registrationDate) {
         return trainer.registerMemberForClass(memberID, classID, registrationDate);
     }
     public static boolean cancelRegistrationFromFrontend(String memberID, String classID) {

@@ -1,5 +1,6 @@
 package frontend;
 
+import backend.Main;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -18,10 +19,6 @@ public class RegisterMemberForClass {
         Stage window = new Stage();
         window.setTitle("Register Member");
 
-        Button registerButton = new Button("Register");
-        registerButton.setOnAction(e -> {
-            window.close();
-        });
 
         Label memberIdLabel = new Label("Member ID");
         TextField memberIdTxt = new TextField();
@@ -37,6 +34,17 @@ public class RegisterMemberForClass {
         grid.add(classIdTxt, 1, 1);
         grid.add(registrationLabel, 0, 2);
         grid.add(registrationDate, 1, 2);
+
+        Button registerButton = new Button("Register");
+        registerButton.setOnAction(e -> {
+            if (!memberIdTxt.getText().isEmpty() && !classIdTxt.getText().isEmpty()) {
+//                Main.registerFromFrontend(memberIdTxt.getText(), classIdTxt.getText(), registrationDate.getValue())
+//                    AlertBox.display("Registered Successfully", "The member with ID = " + memberIdTxt.getText() + "has successfully registered to class " + classIdTxt.getText());
+                    window.close();
+
+//                    AlertBox.display("Already Exist", "The Member with ID = " + idTextField.getText() + " already exists.");
+            }
+        });
 
         VBox registerLayout = new VBox(grid, registerButton);
         registerLayout.setSpacing(10);
