@@ -13,7 +13,7 @@ public class TrainerRoleMenu {
         Button viewMembersButton = new Button("View Members");
         viewMembersButton.setOnAction(e -> {});
         Button addClassButton = new Button("Add Class");
-        addClassButton.setOnAction(e -> {});
+        addClassButton.setOnAction(e -> AddClass.display());
         Button viewClassesButton = new Button("View Classes");
         viewClassesButton.setOnAction(e -> {});
         Button registerButton = new Button("Register Member for Class");

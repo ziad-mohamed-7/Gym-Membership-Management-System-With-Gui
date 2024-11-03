@@ -1,7 +1,6 @@
 package frontend;
 
 import constants.LoginCredentials;
-import javafx.application.Application;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -14,6 +13,8 @@ import javafx.stage.Stage;
 public class TrainerLogin implements LoginCredentials {
 
     public static void display() {
+        Stage adminLoginWindow = new Stage();
+
         Label userNameLabel = new Label("Username: ");
         Label passwordLabel = new Label("Password: ");
 
@@ -22,8 +23,10 @@ public class TrainerLogin implements LoginCredentials {
 
         Button loginButton = new Button("Login");
         loginButton.setOnAction(e -> {
-            if (userNameTextField.getText().equals(TRAINER_USERNAME) && passwordTextField.getText().equals(TRAINER_PASSWORD))
+            if (userNameTextField.getText().equals(TRAINER_USERNAME) && passwordTextField.getText().equals(TRAINER_PASSWORD)) {
                 TrainerRoleMenu.display();
+                adminLoginWindow.close();
+            }
             else
                 AlertBox.display("Wrong Credentials", "Wrong Username or Password");
         });
@@ -35,7 +38,6 @@ public class TrainerLogin implements LoginCredentials {
 
         Scene adminLoginScene = new Scene(adminLoginLayout, 400, 400);
 
-        Stage adminLoginWindow = new Stage();
         adminLoginWindow.setTitle("Admin Login");
         adminLoginWindow.setScene(adminLoginScene);
         adminLoginWindow.show();
