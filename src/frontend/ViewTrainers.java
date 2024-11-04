@@ -1,7 +1,5 @@
 package frontend;
 
-import backend.Main;
-import backend.Trainer;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.Scene;
@@ -13,26 +11,26 @@ import javafx.stage.Stage;
 
 public class ViewTrainers {
     public static void display() {
-        TableView<Trainer> trainerTable = new TableView<>();
+        TableView<ClassesFrontend.TrainerFrontend> trainerTable = new TableView<>();
 
-        TableColumn<Trainer, String> idColumn = new TableColumn<>("ID");
+        TableColumn<ClassesFrontend.TrainerFrontend, String> idColumn = new TableColumn<>("ID");
         idColumn.setMinWidth(50);
         idColumn.setCellValueFactory(new PropertyValueFactory<>("trainerID"));
 
-        TableColumn<Trainer, String> nameColumn = new TableColumn<>("Name");
+        TableColumn<ClassesFrontend.TrainerFrontend, String> nameColumn = new TableColumn<>("Name");
         nameColumn.setMinWidth(100);
         nameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
 
-        TableColumn<Trainer, String> emailColumn = new TableColumn<>("Email");
-        nameColumn.setMinWidth(100);
+        TableColumn<ClassesFrontend.TrainerFrontend, String> emailColumn = new TableColumn<>("Email");
+        emailColumn.setMinWidth(100);
         emailColumn.setCellValueFactory(new PropertyValueFactory<>("email"));
 
-        TableColumn<Trainer, String> specialityColumn = new TableColumn<>("Speciality");
-        nameColumn.setMinWidth(100);
+        TableColumn<ClassesFrontend.TrainerFrontend, String> specialityColumn = new TableColumn<>("Speciality");
+        specialityColumn.setMinWidth(100);
         specialityColumn.setCellValueFactory(new PropertyValueFactory<>("specialty"));
 
-        TableColumn<Trainer, String> phoneNumberColumn = new TableColumn<>("Phone Number");
-        nameColumn.setMinWidth(100);
+        TableColumn<ClassesFrontend.TrainerFrontend, String> phoneNumberColumn = new TableColumn<>("Phone Number");
+        phoneNumberColumn.setMinWidth(100);
         phoneNumberColumn.setCellValueFactory(new PropertyValueFactory<>("phoneNumber"));
 
         trainerTable.setItems(getTrainers());
@@ -48,9 +46,9 @@ public class ViewTrainers {
         trainerTableWindow.show();
     }
 
-    public static ObservableList<Trainer> getTrainers() {
-        ObservableList<Trainer> trainers = FXCollections.observableArrayList();
-        trainers.addAll(Main.getListOfTrainersForFrontend());
+    public static ObservableList<ClassesFrontend.TrainerFrontend> getTrainers() {
+        ObservableList<ClassesFrontend.TrainerFrontend> trainers = FXCollections.observableArrayList();
+        trainers.addAll(ClassesFrontend.TrainerFrontend.getTrainersFromBackend());
         return trainers;
     }
 

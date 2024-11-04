@@ -40,8 +40,7 @@ public class CancelRegistration {
                 AlertBox.display("Cancellation Failed", "Cannot Cancel Registration! Days limit reached.");
         });
 
-        VBox cancelRegistrationLayout = new VBox(grid, cancelRegistrationButton);
-        cancelRegistrationLayout.setSpacing(10);
+        VBox cancelRegistrationLayout = new VBox(25, grid, cancelRegistrationButton);
         cancelRegistrationLayout.setAlignment(Pos.CENTER);
 
         Scene scene = new Scene(cancelRegistrationLayout, 400, 300);

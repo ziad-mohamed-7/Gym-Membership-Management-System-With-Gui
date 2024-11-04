@@ -58,8 +58,7 @@ public class RegisterMemberForClass {
         });
 
 
-        VBox registerLayout = new VBox(grid, registerButton);
-        registerLayout.setSpacing(10);
+        VBox registerLayout = new VBox(25, grid, registerButton);
         registerLayout.setAlignment(Pos.CENTER);
 
         Scene scene = new Scene(registerLayout, 400, 300);

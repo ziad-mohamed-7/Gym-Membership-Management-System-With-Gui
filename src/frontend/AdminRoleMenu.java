@@ -35,7 +35,7 @@ public class AdminRoleMenu {
         adminRoleMenuLayout.setAlignment(Pos.CENTER);
         adminRoleMenuLayout.setSpacing(50);
 
-        Scene adminRoleMenuScene = new Scene(adminRoleMenuLayout, 400, 400);
+        Scene adminRoleMenuScene = new Scene(adminRoleMenuLayout, 300, 300);
 
         AdminRoleMenuWindow.setScene(adminRoleMenuScene);
         AdminRoleMenuWindow.show();

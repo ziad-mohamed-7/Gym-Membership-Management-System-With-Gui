@@ -1,0 +1,2 @@
+C1001, classgdid, T1002, 20, 19
+C1002, classgdid tany, T1001, 50, 49
