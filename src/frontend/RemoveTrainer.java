@@ -32,6 +32,8 @@ public class RemoveTrainer {
         removeTrainerLayout.setSpacing(15);
 
         Scene removeTrainerScene = new Scene(removeTrainerLayout, 500, 200);
+        removeTrainerScene.getStylesheets().add(RemoveTrainer.class.getResource("styles.css").toExternalForm());
+
         removeTrainerWindow.setScene(removeTrainerScene);
         removeTrainerWindow.show();
     }

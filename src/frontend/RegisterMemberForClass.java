@@ -61,9 +61,10 @@ public class RegisterMemberForClass {
         VBox registerLayout = new VBox(25, grid, registerButton);
         registerLayout.setAlignment(Pos.CENTER);
 
-        Scene scene = new Scene(registerLayout, 400, 300);
-        window.setScene(scene);
+        Scene registerMemberScene = new Scene(registerLayout, 400, 300);
+        registerMemberScene.getStylesheets().add(RegisterMemberForClass.class.getResource("styles.css").toExternalForm());
 
+        window.setScene(registerMemberScene);
         window.show();
     }
 }

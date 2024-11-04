@@ -43,9 +43,10 @@ public class CancelRegistration {
         VBox cancelRegistrationLayout = new VBox(25, grid, cancelRegistrationButton);
         cancelRegistrationLayout.setAlignment(Pos.CENTER);
 
-        Scene scene = new Scene(cancelRegistrationLayout, 400, 300);
-        window.setScene(scene);
+        Scene cancelRegistrationScene = new Scene(cancelRegistrationLayout, 400, 300);
+        cancelRegistrationScene.getStylesheets().add(CancelRegistration.class.getResource("styles.css").toExternalForm());
 
+        window.setScene(cancelRegistrationScene);
         window.show();
     }
 }

@@ -12,17 +12,21 @@ import javafx.stage.Stage;
 
 public class AddClass {
     public static void addClassWindow() {
-        Stage window = new Stage();
-        window.setTitle("Add Class");
+        Stage addClassWindow = new Stage();
+        addClassWindow.setTitle("Add Class");
 
         Label classIdLabel = new Label("Class ID");
         TextField classIdTxt = new TextField();
+
         Label classNameLabel = new Label("Class Name");
         TextField classNameTxt = new TextField();
+
         Label trainerIdLabel = new Label("Trainer ID");
         TextField trainerIdTxt = new TextField();
+
         Label durationLabel = new Label("Duration");
         TextField durationTxt = new TextField();
+
         Label maxParticipantsLabel = new Label("Max Participants");
         TextField maxParticipantsTxt = new TextField();
 
@@ -46,10 +50,10 @@ public class AddClass {
         add.setOnAction(e -> {
             if (!classIdTxt.getText().isEmpty() && !classNameTxt.getText().isEmpty() && !trainerIdTxt.getText().isEmpty() && !durationTxt.getText().isEmpty()) {
                 if (Main.addClassFromFrontend(classIdTxt.getText(), classNameTxt.getText(), trainerIdTxt.getText(), Integer.parseInt(durationTxt.getText()), Integer.parseInt(maxParticipantsTxt.getText()))) {
-                    AlertBox.display("Class Added", "Class with ID = " + classIdLabel.getText() + " added successfully.");
-                    window.close();
+                    AlertBox.display("Class Added", "Class with ID = " + classIdTxt.getText() + " added successfully.");
+                    addClassWindow.close();
                 }else
-                    AlertBox.display("Already Exists", "Class with ID = " + classIdLabel.getText() + " already exists.");
+                    AlertBox.display("Already Exists", "Class with ID = " + classIdTxt.getText() + " already exists.");
             }else
                 AlertBox.display("Empty Fields", "Some Fields are Empty!!");
         });
@@ -58,10 +62,11 @@ public class AddClass {
         addClassLayout.setAlignment(Pos.CENTER);
         addClassLayout.setSpacing(15);
 
-        Scene scene = new Scene(addClassLayout, 400, 300);
+        Scene addClassScene = new Scene(addClassLayout, 400, 300);
+        addClassScene.getStylesheets().add(AddClass.class.getResource("styles.css").toExternalForm());
 
-        window.setScene(scene);
+        addClassWindow.setScene(addClassScene);
 
-        window.show();
+        addClassWindow.show();
     }
 }

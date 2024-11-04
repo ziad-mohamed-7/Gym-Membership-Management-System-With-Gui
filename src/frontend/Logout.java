@@ -35,7 +35,9 @@ public class Logout {
         logoutFinalLayout.getChildren().addAll(label, logoutButtonsLayout);
         logoutFinalLayout.setAlignment(Pos.CENTER);
 
-        Scene logoutScene = new Scene(logoutFinalLayout, 400, 100);
+        Scene logoutScene = new Scene(logoutFinalLayout, 400, 150);
+        logoutScene.getStylesheets().add(Logout.class.getResource("styles.css").toExternalForm());
+
         window.setScene(logoutScene);
         window.showAndWait();
         return answer;

@@ -1,6 +1,7 @@
 package frontend;
 
 import backend.Main;
+import backend.TrainerRole;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -45,7 +46,9 @@ public class TrainerRoleMenu {
         VBox trainerRoleMenuLayout = new VBox(17, addMemberButton, viewMembersButton, addClassButton, viewClassesButton, registerButton, cancelButton, viewRegistrationsButton, logoutButton);
         trainerRoleMenuLayout.setAlignment(Pos.CENTER);
 
-        Scene trainerRoleMenuScene = new Scene(trainerRoleMenuLayout, 400, 400);
+        Scene trainerRoleMenuScene = new Scene(trainerRoleMenuLayout, 400, 700);
+        trainerRoleMenuScene.getStylesheets().add(TrainerRoleMenu.class.getResource("styles.css").toExternalForm());
+
         trainerRoleMenuWindow.setScene(trainerRoleMenuScene);
         trainerRoleMenuWindow.show();
     }

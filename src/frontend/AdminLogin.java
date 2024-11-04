@@ -1,7 +1,6 @@
 package frontend;
 
 import constants.LoginCredentials;
-import javafx.application.Application;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -47,7 +46,8 @@ public class AdminLogin implements LoginCredentials {
         adminLoginFinalLayout.getChildren().addAll(adminLoginGridLayout, loginButton);
         adminLoginFinalLayout.setAlignment(Pos.CENTER);
 
-        Scene adminLoginScene = new Scene(adminLoginFinalLayout, 300, 300);
+        Scene adminLoginScene = new Scene(adminLoginFinalLayout, 400, 400);
+        adminLoginScene.getStylesheets().add(AdminLogin.class.getResource("styles.css").toExternalForm());
 
         adminLoginWindow.setScene(adminLoginScene);
         adminLoginWindow.show();

@@ -29,7 +29,7 @@ public class StartWindow extends Application {
         startLayout.getChildren().addAll(adminRoleButton, trainerRoleButton);
         startLayout.setAlignment(Pos.CENTER);
 
-        Scene startScene = new Scene(startLayout, 300, 300);
+        Scene startScene = new Scene(startLayout, 400, 400);
         startScene.getStylesheets().add(getClass().getResource("styles.css").toExternalForm());
 
         window.setScene(startScene);

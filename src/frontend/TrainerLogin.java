@@ -46,9 +46,10 @@ public class TrainerLogin implements LoginCredentials {
         trainerLoginFinalLayout.getChildren().addAll(trainerLoginGridLayout, loginButton);
         trainerLoginFinalLayout.setAlignment(Pos.CENTER);
 
-        Scene adminLoginScene = new Scene(trainerLoginFinalLayout, 300, 300);
+        Scene trainerLoginScene = new Scene(trainerLoginFinalLayout, 400, 400);
+        trainerLoginScene.getStylesheets().add(TrainerLogin.class.getResource("styles.css").toExternalForm());
 
-        trainerLoginWindow.setScene(adminLoginScene);
+        trainerLoginWindow.setScene(trainerLoginScene);
         trainerLoginWindow.show();
     }
 }

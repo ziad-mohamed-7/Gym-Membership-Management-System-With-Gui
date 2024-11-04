@@ -93,6 +93,8 @@ public class AddPerson {
         addPersonFinalLayout.setSpacing(30);
 
         Scene addPersonScene = new Scene(addPersonFinalLayout, 400, 400);
+        addPersonScene.getStylesheets().add(AddPerson.class.getResource("styles.css").toExternalForm());
+
         addPersonWindow.setScene(addPersonScene);
         addPersonWindow.show();
 
