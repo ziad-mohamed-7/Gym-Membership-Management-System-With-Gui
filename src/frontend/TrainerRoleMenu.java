@@ -14,18 +14,25 @@ public class TrainerRoleMenu {
 
         Button addMemberButton = new Button("Add Member");
         addMemberButton.setOnAction(e -> AddPerson.addPersonWindow("Member"));
+
         Button viewMembersButton = new Button("View Members");
-        viewMembersButton.setOnAction(e -> {});
+        viewMembersButton.setOnAction(e -> ViewMembers.display());
+
         Button addClassButton = new Button("Add Class");
         addClassButton.setOnAction(e -> AddClass.addClassWindow());
+
         Button viewClassesButton = new Button("View Classes");
-        viewClassesButton.setOnAction(e -> {});
+        viewClassesButton.setOnAction(e -> ViewClasses.display());
+
         Button registerButton = new Button("Register Member for Class");
         registerButton.setOnAction(e -> RegisterMemberForClass.registerWindow());
+
         Button cancelButton = new Button("Cancel Registration");
         cancelButton.setOnAction(e -> CancelRegistration.cancelRegistrationWindow());
+
         Button viewRegistrationsButton = new Button("View Registrations");
-        viewRegistrationsButton.setOnAction(e -> {});
+        viewRegistrationsButton.setOnAction(e -> ViewRegistrations.display());
+
         Button logoutButton = new Button("Logout");
         logoutButton.setOnAction(e -> {
             boolean result = Logout.display();
@@ -35,10 +42,10 @@ public class TrainerRoleMenu {
             }
         });
 
-        VBox trainerRoleMenuLayout = new VBox(20, addMemberButton, viewMembersButton, addClassButton, viewClassesButton, registerButton, cancelButton, viewRegistrationsButton, logoutButton);
+        VBox trainerRoleMenuLayout = new VBox(17, addMemberButton, viewMembersButton, addClassButton, viewClassesButton, registerButton, cancelButton, viewRegistrationsButton, logoutButton);
         trainerRoleMenuLayout.setAlignment(Pos.CENTER);
 
-        Scene trainerRoleMenuScene = new Scene(trainerRoleMenuLayout, 400, 700);
+        Scene trainerRoleMenuScene = new Scene(trainerRoleMenuLayout, 400, 400);
         trainerRoleMenuWindow.setScene(trainerRoleMenuScene);
         trainerRoleMenuWindow.show();
     }

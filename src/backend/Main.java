@@ -98,11 +98,11 @@ public class Main {
     public static boolean removeTrainerFromFrontend(String trainerID) {
         return admin.removeTrainer(trainerID);
     }
-    public static void adminLogoutFromFrontend() {
-        admin.logout();
-    }
     public static ArrayList<Trainer> getListOfTrainersForFrontend() {
         return admin.getListOfTrainers();
+    }
+    public static void adminLogoutFromFrontend() {
+        admin.logout();
     }
 
 
@@ -118,6 +118,15 @@ public class Main {
     }
     public static boolean cancelRegistrationFromFrontend(String memberID, String classID) {
         return trainer.cancelRegistration(memberID, classID);
+    }
+    public static ArrayList<Member> getListOfMembersForFrontend() {
+        return trainer.getListOfMembers();
+    }
+    public static ArrayList<Class> getListOfClassesForFrontend() {
+        return trainer.getListOfClasses();
+    }
+    public static ArrayList<MemberClassRegistration> getListOfRegistrationsForFrontend() {
+        return trainer.getListOfRegistrations();
     }
     public static void  trainerLogoutFromFrontend() {
         trainer.logout();
