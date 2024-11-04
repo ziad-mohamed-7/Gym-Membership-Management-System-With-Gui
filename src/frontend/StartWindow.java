@@ -5,6 +5,9 @@ import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.VBox;
+//import javafx.scene.media.Media;
+//import javafx.scene.media.MediaPlayer;
+//import java.io.File;
 import javafx.stage.Stage;
 
 public class StartWindow extends Application {
@@ -13,6 +16,7 @@ public class StartWindow extends Application {
     }
 
     public void start(Stage window) {
+
         Button adminRoleButton = new Button("Admin Role");
         adminRoleButton.setOnAction(e -> {
             AdminLogin.display();
@@ -34,6 +38,11 @@ public class StartWindow extends Application {
 
         window.setScene(startScene);
         window.setTitle("Gym System");
+
+//        Media sound = new Media(new File("Infraction_-_Gym_Crossfit.mp3").toURI().toString());
+//        MediaPlayer mediaPlayer = new MediaPlayer(sound);
+//
+//        mediaPlayer.play();
         window.show();
 
     }

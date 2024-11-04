@@ -51,5 +51,4 @@ public class ViewTrainers {
         trainers.addAll(ClassesFrontend.TrainerFrontend.getTrainersFromBackend());
         return trainers;
     }
-
 }

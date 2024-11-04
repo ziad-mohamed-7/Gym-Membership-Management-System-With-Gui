@@ -1,10 +1,11 @@
 .root {
-    -fx-background-color: #FFAE19;
+    -fx-background-color: #ffae19;
     -fx-font-size: 18px;
 }
 
+
 .button {
-    -fx-background-color: #FFAE19;
+    -fx-background-color: #ffae19;
     -fx-border-color: black;
     -fx-border-radius: 25px;
     -fx-padding: 15px;
@@ -12,13 +13,49 @@
     -fx-height: 100px;
 }
 
-
 .button:hover {
-    /*-fx-background-color: #cc8b14;*/
+    /*-fx-background-color: #060270;*/
     -fx-border-radius: 25px;
     -fx-font-size: 19px;
     -fx-padding: 17px;
     -fx-width: 200px;
     -fx-height: 100px;
     -fx-cursor: hand;
+}
+
+
+.combo-box {
+    -fx-background-color: #fff;
+    -fx-border-color: #ccc;
+    -fx-border-width: 1px;
+    -fx-font-size: 14px;
+    -fx-padding: 5px 10px;
+}
+
+.combo-box .arrow-button {
+    -fx-background-color: #cecece;
+    -fx-padding: 5px;
+}
+
+.combo-box .arrow-button:hover {
+    -fx-background-color: #ddd;
+}
+
+.combo-box-popup {
+    -fx-background-color: #fff;
+    -fx-border-color: #ccc;
+    -fx-border-width: 1px;
+}
+
+.combo-box-popup .list-view {
+    -fx-background-color: #000;
+}
+
+.combo-box-popup .list-cell {
+    -fx-background-color: #ffae19;
+    -fx-padding: 5px 10px;
+}
+
+.combo-box-popup .list-cell:hover {
+    -fx-background-color: #060270;
 }
