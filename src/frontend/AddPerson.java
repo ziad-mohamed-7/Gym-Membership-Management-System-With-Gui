@@ -31,8 +31,6 @@ public class AddPerson {
         TextField emailTextField = new TextField();
         TextField phoneNumberTextField = new TextField();
         TextField specialityTextField = new TextField();
-//        TextField membershipTextField = new TextField();
-//        TextField statusTextField = new TextField();
 
         GridPane addPersonGridLayout = new GridPane();
         addPersonGridLayout.add(idLabel, 0, 0);
@@ -56,10 +54,8 @@ public class AddPerson {
         } else if (type.equals("Member")) {
             addPersonGridLayout.add(membershipLabel, 0, 5);
             addPersonGridLayout.add(membershipComboBox, 1, 5);
-//            addPersonGridLayout.add(membershipTextField, 1, 5);
             addPersonGridLayout.add(statusLabel, 0, 6);
             addPersonGridLayout.add(stautsComboBox, 1, 6);
-//            addPersonGridLayout.add(statusTextField, 1, 6);
         } else {
             System.out.println("Wrong type");
         }
@@ -81,18 +77,13 @@ public class AddPerson {
                     } else
                         AlertBox.display("Empty Fields", "Some Fields are Empty!!", true);
                 } else if (type.equals("Member")) {
-
-//                    if (!membershipLabel.getText().isEmpty() && !statusTextField.getText().isEmpty()) {
                     if (Main.addMemberFromFrontend(idTextField.getText(), nameTextField.getText(), membershipComboBox.getValue(), emailTextField.getText(), phoneNumberTextField.getText(), stautsComboBox.getValue())) {
                         AlertBox.display("Member Added", "The Member with ID = " + idTextField.getText() + " has been added successfully.", false);
                         addPersonWindow.close();
                     } else {
                         AlertBox.display("Already Exist", "The Member with ID = " + idTextField.getText() + " already exists.", true);
                     }
-                }
-//                else
-//                        AlertBox.display("Empty Fields", "Some Fields are Empty!!");
-                else {
+                } else {
                     System.out.println("Wrong type");
                 }
             } else {

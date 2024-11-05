@@ -1,23 +1,30 @@
 .root {
-    -fx-background-color: #ffae19;
+    -fx-background-color: #01e19a;
     -fx-font-size: 18px;
 }
 
-
+.gym-title {
+    -fx-text-fill: white;
+    -fx-font-size: 40px;
+    -fx-font-weight: bold;
+}
 .button {
-    -fx-background-color: #ffae19;
+    -fx-background-color: #01e19a;
     -fx-border-color: black;
     -fx-border-radius: 25px;
+    -fx-background-radius: 25px;
     -fx-padding: 15px;
     -fx-width: 200px;
     -fx-height: 100px;
 }
 
 .button:hover {
-    /*-fx-background-color: #060270;*/
+    -fx-background-color: #01c889;
+    -fx-background-size: 10px;
+    -fx-background-radius: 25px;
     -fx-border-radius: 25px;
     -fx-font-size: 19px;
-    -fx-padding: 17px;
+    -fx-padding: 16px;
     -fx-width: 200px;
     -fx-height: 100px;
     -fx-cursor: hand;
@@ -52,7 +59,7 @@
 }
 
 .combo-box-popup .list-cell {
-    -fx-background-color: #ffae19;
+    -fx-background-color: #01e19a;
     -fx-padding: 5px 10px;
 }
 

@@ -13,8 +13,6 @@ import javafx.scene.layout.VBox;
 import java.io.File;
 import javafx.stage.Stage;
 
-import java.util.Objects;
-
 public class StartWindow extends Application {
     public static void main(String[] args) {
         launch(args);
@@ -22,10 +20,10 @@ public class StartWindow extends Application {
 
     public void start(Stage window) {
 
-        Label gymTitle = new Label("Gym Abou Hadeed");
+        Label gymTitle = new Label("Gym Abo Dra3");
         gymTitle.getStyleClass().add("gym-title");
 
-        Image logo = new Image(new File("gym.png").toURI().toString());
+        Image logo = new Image(new File("src/resources/gym.png").toURI().toString());
         ImageView logoView = new ImageView(logo);
         logoView.setFitWidth(75);
         logoView.setPreserveRatio(true);
@@ -42,7 +40,7 @@ public class StartWindow extends Application {
             window.close();
         });
 
-        VBox startLayout = new VBox(50);
+        VBox startLayout = new VBox(35);
         startLayout.getChildren().addAll(logoView,gymTitle, adminRoleButton, trainerRoleButton);
         startLayout.setAlignment(Pos.CENTER);
 

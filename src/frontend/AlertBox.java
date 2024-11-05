@@ -22,12 +22,12 @@ public class AlertBox {
         window.initModality(Modality.APPLICATION_MODAL);
         window.setTitle(title);
 
-        Image errorLogo = new Image(new File("error.png").toURI().toString());
+        Image errorLogo = new Image(new File("src/resources/error.png").toURI().toString());
         ImageView errorLogoView = new ImageView(errorLogo);
         errorLogoView.setFitWidth(50);
         errorLogoView.setPreserveRatio(true);
 
-        Image passLogo = new Image(new File("passed.png").toURI().toString());
+        Image passLogo = new Image(new File("src/resources/passed.png").toURI().toString());
         ImageView passLogoView = new ImageView(passLogo);
         passLogoView.setFitWidth(50);
         passLogoView.setPreserveRatio(true);
