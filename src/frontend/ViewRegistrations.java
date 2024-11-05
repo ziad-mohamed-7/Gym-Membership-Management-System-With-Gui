@@ -17,7 +17,7 @@ public class ViewRegistrations {
 
         TableColumn<ClassesFrontend.RegistrationFrontend, String> memberIdColumn = new TableColumn<>("Member ID");
         memberIdColumn.setMinWidth(50);
-        memberIdColumn.setCellValueFactory(new PropertyValueFactory<>("classID"));
+        memberIdColumn.setCellValueFactory(new PropertyValueFactory<>("memberID"));
 
         TableColumn<ClassesFrontend.RegistrationFrontend, String> classIdColumn = new TableColumn<>("Class ID");
         classIdColumn.setMinWidth(100);

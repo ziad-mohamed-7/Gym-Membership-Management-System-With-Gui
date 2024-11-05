@@ -45,6 +45,7 @@ public class TrainerRole implements FileNames {
 
     public int registerMemberForClass(String memberID, String classID, LocalDate registrationDate) {
         if (!classDatabase.contains(classID)) return 0;
+        if (!memberDatabase.contains(memberID)) return 4;
         Class c1 = (Class) classDatabase.getRecord(classID);
         if (c1.getAvailableSeats() == 0) return 1;
         MemberClassRegistration r1 = new MemberClassRegistration(memberID, classID, registrationDate, "active");
@@ -55,18 +56,19 @@ public class TrainerRole implements FileNames {
         return 3;
     }
 
-    public boolean cancelRegistration(String memberID, String classID) {
+    public int cancelRegistration(String memberID, String classID) {
+        if (!classDatabase.contains(classID)) return 1;
+        if (!memberDatabase.contains(memberID)) return 2;
+        if(!registrationDatabase.contains(memberID+classID)) return 3;
         MemberClassRegistration r1 = (MemberClassRegistration) registrationDatabase.getRecord(memberID + classID);
-
-
         if (!LocalDate.now().isBefore(r1.getRegistrationDate()) && !LocalDate.now().isAfter(r1.getRegistrationDate().plusDays(3))) {
             r1.setRegistrationStatus("cancelled");
             registrationDatabase.deleteRecord(r1.getSearchKey());
             Class c1 = (Class) classDatabase.getRecord(classID);
             c1.setAvailableSeats(c1.getAvailableSeats() + 1);
-            return true;
+            return 0;
         } else
-            return false;
+            return 4;
     }
 
     public ArrayList<MemberClassRegistration> getListOfRegistrations() {

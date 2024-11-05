@@ -33,11 +33,24 @@ public class CancelRegistration {
 
         Button cancelRegistrationButton = new Button("Cancel Registration");
         cancelRegistrationButton.setOnAction(e -> {
-            if (Main.cancelRegistrationFromFrontend(memberIdTxt.getText(), classIdTxt.getText())) {
-                AlertBox.display("Cancelled Successfully", "The Member with ID = " + memberIdTxt.getText() + " has been unregistered from Class" + classIdTxt.getText());
-                window.close();
-            }else
-                AlertBox.display("Cancellation Failed", "Cannot Cancel Registration! Days limit reached.");
+            if (!memberIdTxt.getText().isEmpty() && !classIdTxt.getText().isEmpty()) {
+                switch (Main.cancelRegistrationFromFrontend(memberIdTxt.getText(), classIdTxt.getText())) {
+                    case 0 -> {
+                        AlertBox.display("Cancelled Successfully", "The Member with ID = " + memberIdTxt.getText() + " has been unregistered from Class" + classIdTxt.getText());
+                        window.close();
+                    }
+                    case 1 ->
+                            AlertBox.display("Does Not Exist", "The Class " + classIdTxt.getText() + " does not exist.");
+                    case 2 ->
+                            AlertBox.display("Does Not Exist", "The Member " + memberIdTxt.getText() + " does not exist.");
+                    case 3 ->
+                            AlertBox.display("Not Registered", "The Member " + memberIdTxt.getText() + " is not registered to the Class " + classIdTxt.getText());
+                    case 4 ->
+                            AlertBox.display("Cancellation Failed", "Cannot Cancel Registration! Days limit reached.");
+
+                }
+            } else
+                AlertBox.display("Empty Fields", "Some Fields are Empty!!");
         });
 
         VBox cancelRegistrationLayout = new VBox(25, grid, cancelRegistrationButton);

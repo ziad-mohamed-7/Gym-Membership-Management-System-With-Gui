@@ -12,6 +12,7 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 
 
 public class RegisterMemberForClass {
@@ -47,11 +48,14 @@ public class RegisterMemberForClass {
                     case 1 ->
                             AlertBox.display("No Seats", "The Class " + classIdTxt.getText() + " has no available seats.");
                     case 2 ->
-                            AlertBox.display("Already Exists", "The member with ID = " + memberIdTxt.getText() + "is already registered to class " + classIdTxt.getText());
+                            AlertBox.display("Already Exists", "The member with ID = " + memberIdTxt.getText() + " is already registered to class " + classIdTxt.getText());
                     case 3 -> {
-                        AlertBox.display("Registered Successfully", "The member with ID = " + memberIdTxt.getText() + "has successfully registered to class " + classIdTxt.getText());
+                        AlertBox.display("Registered Successfully", "The member with ID = " + memberIdTxt.getText() + " has successfully registered to class " + classIdTxt.getText());
                         window.close();
                     }
+                    case 4 ->
+                            AlertBox.display("Does Not Exist", "The Member " + memberIdTxt.getText() + " does not exist.");
+
                 }
             }else
                 AlertBox.display("Empty Fields", "Some Fields are Empty!!");
@@ -61,10 +65,22 @@ public class RegisterMemberForClass {
         VBox registerLayout = new VBox(25, grid, registerButton);
         registerLayout.setAlignment(Pos.CENTER);
 
-        Scene registerMemberScene = new Scene(registerLayout, 400, 300);
+        Scene registerMemberScene = new Scene(registerLayout, 600, 300);
         registerMemberScene.getStylesheets().add(RegisterMemberForClass.class.getResource("styles.css").toExternalForm());
 
         window.setScene(registerMemberScene);
         window.show();
     }
+
+//    public static boolean doesExist(String memberId){
+//        ArrayList<ClassesFrontend.MemberFrontend> members = new ArrayList<>();
+//        members.addAll(ClassesFrontend.MemberFrontend.getMembersFromBackend());
+//        boolean exits =false;
+//        for (ClassesFrontend.MemberFrontend member : members) {
+//            if (memberId.equals(member.)) {
+//                exits = true;
+//            }
+//        }
+//        return exits;
+//    }
 }

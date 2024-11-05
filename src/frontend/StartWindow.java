@@ -5,9 +5,9 @@ import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.VBox;
-//import javafx.scene.media.Media;
-//import javafx.scene.media.MediaPlayer;
-//import java.io.File;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
+import java.io.File;
 import javafx.stage.Stage;
 
 public class StartWindow extends Application {

@@ -1,6 +1,8 @@
 package frontend;
 
 import backend.Main;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -9,6 +11,8 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+
+import java.util.ArrayList;
 
 public class AddClass {
     public static void addClassWindow() {
@@ -47,14 +51,18 @@ public class AddClass {
         grid.setAlignment(Pos.CENTER);
 
         Button add = new Button("Add");
+
         add.setOnAction(e -> {
             if (!classIdTxt.getText().isEmpty() && !classNameTxt.getText().isEmpty() && !trainerIdTxt.getText().isEmpty() && !durationTxt.getText().isEmpty()) {
-                if (Main.addClassFromFrontend(classIdTxt.getText(), classNameTxt.getText(), trainerIdTxt.getText(), Integer.parseInt(durationTxt.getText()), Integer.parseInt(maxParticipantsTxt.getText()))) {
+                if(!doesExist(trainerIdTxt.getText()))
+                    AlertBox.display("Trainer Doean't Exist", "Trainer with ID = " + trainerIdTxt.getText() + " does not exist");
+                else if (Main.addClassFromFrontend(classIdTxt.getText(), classNameTxt.getText(), trainerIdTxt.getText(), Integer.parseInt(durationTxt.getText()), Integer.parseInt(maxParticipantsTxt.getText()))) {
                     AlertBox.display("Class Added", "Class with ID = " + classIdTxt.getText() + " added successfully.");
                     addClassWindow.close();
-                }else
+                } else
                     AlertBox.display("Already Exists", "Class with ID = " + classIdTxt.getText() + " already exists.");
-            }else
+
+            } else
                 AlertBox.display("Empty Fields", "Some Fields are Empty!!");
         });
 
@@ -62,11 +70,26 @@ public class AddClass {
         addClassLayout.setAlignment(Pos.CENTER);
         addClassLayout.setSpacing(15);
 
-        Scene addClassScene = new Scene(addClassLayout, 400, 300);
+        Scene addClassScene = new Scene(addClassLayout, 400, 400);
         addClassScene.getStylesheets().add(AddClass.class.getResource("styles.css").toExternalForm());
 
         addClassWindow.setScene(addClassScene);
 
         addClassWindow.show();
+
+    }
+
+    public static boolean doesExist(String trainerId){
+        ArrayList<ClassesFrontend.TrainerFrontend> trainers = new ArrayList<>();
+        trainers.addAll(ClassesFrontend.TrainerFrontend.getTrainersFromBackend());
+        boolean exits =false;
+        for (ClassesFrontend.TrainerFrontend trainer : trainers) {
+            if (trainerId.equals(trainer.trainerID)) {
+                exits = true;
+            }
+        }
+        return exits;
     }
 }
+
+

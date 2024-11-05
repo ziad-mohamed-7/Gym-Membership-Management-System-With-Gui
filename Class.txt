@@ -1,2 +1,5 @@
-C1001, classgdid, T1002, 20, 19
+C1001, classgdid, T1002, 20, 0
 C1002, classgdid tany, T1001, 50, 49
+C1009, gombaz, T1111, 10, 10
+C1006, esharat mror, T1000, 60, 60
+C1000, cyvbi, T1002, 65, 565
