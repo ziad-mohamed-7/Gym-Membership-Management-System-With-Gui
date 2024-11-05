@@ -73,21 +73,21 @@ public class AddPerson {
                 if (type.equals("Trainer")) {
                     if (!specialityTextField.getText().isEmpty()) {
                         if (Main.addTrainerFromFrontend(idTextField.getText(), nameTextField.getText(), emailTextField.getText(), phoneNumberTextField.getText(), specialityTextField.getText())) {
-                            AlertBox.display("Trainer Added", "The Trainer with ID = " + idTextField.getText() + " has been added successfully.");
+                            AlertBox.display("Trainer Added", "The Trainer with ID = " + idTextField.getText() + " has been added successfully.", false);
                             addPersonWindow.close();
                         } else {
-                            AlertBox.display("Already Exist", "The Trainer with ID = " + idTextField.getText() + " already exists.");
+                            AlertBox.display("Already Exist", "The Trainer with ID = " + idTextField.getText() + " already exists.", true);
                         }
                     } else
-                        AlertBox.display("Empty Fields", "Some Fields are Empty!!");
+                        AlertBox.display("Empty Fields", "Some Fields are Empty!!", true);
                 } else if (type.equals("Member")) {
 
 //                    if (!membershipLabel.getText().isEmpty() && !statusTextField.getText().isEmpty()) {
                     if (Main.addMemberFromFrontend(idTextField.getText(), nameTextField.getText(), membershipComboBox.getValue(), emailTextField.getText(), phoneNumberTextField.getText(), stautsComboBox.getValue())) {
-                        AlertBox.display("Member Added", "The Member with ID = " + idTextField.getText() + " has been added successfully.");
+                        AlertBox.display("Member Added", "The Member with ID = " + idTextField.getText() + " has been added successfully.", false);
                         addPersonWindow.close();
                     } else {
-                        AlertBox.display("Already Exist", "The Member with ID = " + idTextField.getText() + " already exists.");
+                        AlertBox.display("Already Exist", "The Member with ID = " + idTextField.getText() + " already exists.", true);
                     }
                 }
 //                else
@@ -96,7 +96,7 @@ public class AddPerson {
                     System.out.println("Wrong type");
                 }
             } else {
-                AlertBox.display("Empty Fields", "Some Fields are Empty!!");
+                AlertBox.display("Empty Fields", "Some Fields are Empty!!", true);
             }
         });
 

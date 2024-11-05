@@ -44,21 +44,21 @@ public class RegisterMemberForClass {
             if (!memberIdTxt.getText().isEmpty() && !classIdTxt.getText().isEmpty()) {
                 switch (Main.registerFromFrontend(memberIdTxt.getText(), classIdTxt.getText(), registrationDate.getValue())) {
                     case 0 ->
-                            AlertBox.display("Does Not Exist", "The Class " + classIdTxt.getText() + " does not exist.");
+                            AlertBox.display("Does Not Exist", "The Class " + classIdTxt.getText() + " does not exist.", true);
                     case 1 ->
-                            AlertBox.display("No Seats", "The Class " + classIdTxt.getText() + " has no available seats.");
+                            AlertBox.display("No Seats", "The Class " + classIdTxt.getText() + " has no available seats.", true);
                     case 2 ->
-                            AlertBox.display("Already Exists", "The member with ID = " + memberIdTxt.getText() + " is already registered to class " + classIdTxt.getText());
+                            AlertBox.display("Already Exists", "The member with ID = " + memberIdTxt.getText() + " is already registered to class " + classIdTxt.getText(), true);
                     case 3 -> {
-                        AlertBox.display("Registered Successfully", "The member with ID = " + memberIdTxt.getText() + " has successfully registered to class " + classIdTxt.getText());
+                        AlertBox.display("Registered Successfully", "The member with ID = " + memberIdTxt.getText() + " has successfully registered to class " + classIdTxt.getText(), false);
                         window.close();
                     }
                     case 4 ->
-                            AlertBox.display("Does Not Exist", "The Member " + memberIdTxt.getText() + " does not exist.");
+                            AlertBox.display("Does Not Exist", "The Member " + memberIdTxt.getText() + " does not exist.", true);
 
                 }
             }else
-                AlertBox.display("Empty Fields", "Some Fields are Empty!!");
+                AlertBox.display("Empty Fields", "Some Fields are Empty!!", true);
         });
 
 
@@ -71,16 +71,4 @@ public class RegisterMemberForClass {
         window.setScene(registerMemberScene);
         window.show();
     }
-
-//    public static boolean doesExist(String memberId){
-//        ArrayList<ClassesFrontend.MemberFrontend> members = new ArrayList<>();
-//        members.addAll(ClassesFrontend.MemberFrontend.getMembersFromBackend());
-//        boolean exits =false;
-//        for (ClassesFrontend.MemberFrontend member : members) {
-//            if (memberId.equals(member.)) {
-//                exits = true;
-//            }
-//        }
-//        return exits;
-//    }
 }

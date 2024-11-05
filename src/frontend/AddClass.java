@@ -55,15 +55,15 @@ public class AddClass {
         add.setOnAction(e -> {
             if (!classIdTxt.getText().isEmpty() && !classNameTxt.getText().isEmpty() && !trainerIdTxt.getText().isEmpty() && !durationTxt.getText().isEmpty()) {
                 if(!doesExist(trainerIdTxt.getText()))
-                    AlertBox.display("Trainer Doean't Exist", "Trainer with ID = " + trainerIdTxt.getText() + " does not exist");
+                    AlertBox.display("Trainer Doean't Exist", "Trainer with ID = " + trainerIdTxt.getText() + " does not exist", true);
                 else if (Main.addClassFromFrontend(classIdTxt.getText(), classNameTxt.getText(), trainerIdTxt.getText(), Integer.parseInt(durationTxt.getText()), Integer.parseInt(maxParticipantsTxt.getText()))) {
-                    AlertBox.display("Class Added", "Class with ID = " + classIdTxt.getText() + " added successfully.");
+                    AlertBox.display("Class Added", "Class with ID = " + classIdTxt.getText() + " added successfully.", false);
                     addClassWindow.close();
                 } else
-                    AlertBox.display("Already Exists", "Class with ID = " + classIdTxt.getText() + " already exists.");
+                    AlertBox.display("Already Exists", "Class with ID = " + classIdTxt.getText() + " already exists.", true);
 
             } else
-                AlertBox.display("Empty Fields", "Some Fields are Empty!!");
+                AlertBox.display("Empty Fields", "Some Fields are Empty!!", true);
         });
 
         VBox addClassLayout = new VBox(grid, add);

@@ -29,7 +29,7 @@ public class TrainerLogin implements LoginCredentials {
                 trainerLoginWindow.close();
             }
             else
-                AlertBox.display("Wrong Credentials", "Wrong Username or Password");
+                AlertBox.display("Wrong Credentials", "Wrong Username or Password", true);
         });
 
 

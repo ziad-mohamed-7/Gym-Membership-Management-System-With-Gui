@@ -3,7 +3,11 @@
     -fx-font-size: 18px;
 }
 
-
+.gym-title {
+    -fx-text-fill: white;
+    -fx-font-size: 40px;
+    -fx-font-weight: bold;
+}
 .button {
     -fx-background-color: #01e19a;
     -fx-border-color: black;

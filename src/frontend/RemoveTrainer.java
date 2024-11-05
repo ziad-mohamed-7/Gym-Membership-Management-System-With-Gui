@@ -19,11 +19,11 @@ public class RemoveTrainer {
         Button removeButton = new Button("Remove");
         removeButton.setOnAction(e -> {
             if (Main.removeTrainerFromFrontend(trainerIdTextField.getText())) {
-                AlertBox.display("Remove Trainer", "The Trainer with ID = "+ trainerIdTextField.getText() + " has been removed");
+                AlertBox.display("Remove Trainer", "The Trainer with ID = "+ trainerIdTextField.getText() + " has been removed", false);
                 removeTrainerWindow.close();
             }
             else {
-                AlertBox.display("Not Found", "The Trainer with ID = " + trainerIdTextField.getText() + " does not exist");
+                AlertBox.display("Not Found", "The Trainer with ID = " + trainerIdTextField.getText() + " does not exist", true);
             }
         });
 

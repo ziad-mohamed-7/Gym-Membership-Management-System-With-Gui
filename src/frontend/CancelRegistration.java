@@ -36,21 +36,21 @@ public class CancelRegistration {
             if (!memberIdTxt.getText().isEmpty() && !classIdTxt.getText().isEmpty()) {
                 switch (Main.cancelRegistrationFromFrontend(memberIdTxt.getText(), classIdTxt.getText())) {
                     case 0 -> {
-                        AlertBox.display("Cancelled Successfully", "The Member with ID = " + memberIdTxt.getText() + " has been unregistered from Class" + classIdTxt.getText());
+                        AlertBox.display("Cancelled Successfully", "The Member with ID = " + memberIdTxt.getText() + " has been unregistered from Class" + classIdTxt.getText(), false);
                         window.close();
                     }
                     case 1 ->
-                            AlertBox.display("Does Not Exist", "The Class " + classIdTxt.getText() + " does not exist.");
+                            AlertBox.display("Does Not Exist", "The Class " + classIdTxt.getText() + " does not exist.", true);
                     case 2 ->
-                            AlertBox.display("Does Not Exist", "The Member " + memberIdTxt.getText() + " does not exist.");
+                            AlertBox.display("Does Not Exist", "The Member " + memberIdTxt.getText() + " does not exist.", true);
                     case 3 ->
-                            AlertBox.display("Not Registered", "The Member " + memberIdTxt.getText() + " is not registered to the Class " + classIdTxt.getText());
+                            AlertBox.display("Not Registered", "The Member " + memberIdTxt.getText() + " is not registered to the Class " + classIdTxt.getText(), true);
                     case 4 ->
-                            AlertBox.display("Cancellation Failed", "Cannot Cancel Registration! Days limit reached.");
+                            AlertBox.display("Cancellation Failed", "Cannot Cancel Registration! Days limit reached.", true);
 
                 }
             } else
-                AlertBox.display("Empty Fields", "Some Fields are Empty!!");
+                AlertBox.display("Empty Fields", "Some Fields are Empty!!", true);
         });
 
         VBox cancelRegistrationLayout = new VBox(25, grid, cancelRegistrationButton);

@@ -30,7 +30,7 @@ public class AdminLogin implements LoginCredentials {
                 adminLoginWindow.close();
             }
             else
-                AlertBox.display("Wrong Credentials", "Wrong Username or Password");
+                AlertBox.display("Wrong Credentials", "Wrong Username or Password", true);
         });
 
         GridPane adminLoginGridLayout = new GridPane();
